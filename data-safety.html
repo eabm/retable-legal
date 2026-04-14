@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguridad de los Datos — Retable</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0f0f0f; color: #e0e0e0; line-height: 1.7; }
+        .container { max-width: 720px; margin: 0 auto; padding: 40px 24px; }
+        h1 { color: #4caf50; font-size: 1.8rem; margin-bottom: 4px; }
+        .date { color: #888; font-size: 0.85rem; margin-bottom: 32px; }
+        h2 { color: #fff; font-size: 1.15rem; margin-top: 28px; margin-bottom: 10px; border-left: 3px solid #4caf50; padding-left: 12px; }
+        h3 { color: #aaa; font-size: 1rem; margin-top: 18px; margin-bottom: 8px; }
+        p { margin-bottom: 12px; color: #ccc; }
+        ul { margin: 8px 0 16px 24px; }
+        li { margin-bottom: 6px; color: #bbb; }
+        strong { color: #e0e0e0; }
+        .back { display: inline-block; margin-bottom: 24px; color: #4caf50; text-decoration: none; font-size: 0.9rem; }
+        .back:hover { text-decoration: underline; }
+        .footer { text-align: center; color: #555; font-size: 0.8rem; margin-top: 48px; border-top: 1px solid #222; padding-top: 20px; }
+        .footer a { color: #4caf50; text-decoration: none; }
+        table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+        th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid #222; }
+        th { color: #4caf50; font-size: 0.85rem; text-transform: uppercase; }
+        td { color: #bbb; font-size: 0.9rem; }
+        .badge-yes { background: #1a2e1a; color: #4caf50; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; }
+        .badge-no { background: #2e1a1a; color: #e57373; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; }
+        .note { background: #1a1a2e; border: 1px solid #2e2e4a; border-radius: 8px; padding: 12px 16px; margin: 16px 0; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a class="back" href="https://eabm.github.io/retable-legal/index.html">← Volver al inicio</a>
+        <h1>Seguridad de los Datos</h1>
+        <p class="date">Referencia para el formulario de Google Play — Abril 2026</p>
+
+        <div class="note">
+            <p>📋 Este documento sirve como referencia para completar el <strong>formulario de Seguridad de los Datos</strong> (Data Safety) en Google Play Console. Describe exactamente qué datos recopila, comparte y maneja Retable.</p>
+        </div>
+
+        <h2>Resumen General</h2>
+        <table>
+            <tr><th>Pregunta</th><th>Respuesta</th></tr>
+            <tr><td>¿La app recopila datos de usuario?</td><td><span class="badge-yes">Sí</span></td></tr>
+            <tr><td>¿La app comparte datos con terceros?</td><td><span class="badge-no">No</span></td></tr>
+            <tr><td>¿La app maneja datos de forma segura?</td><td><span class="badge-yes">Sí (HTTPS/TLS)</span></td></tr>
+            <tr><td>¿Los usuarios pueden solicitar eliminación?</td><td><span class="badge-yes">Sí</span></td></tr>
+        </table>
+
+        <h2>Datos Recopilados</h2>
+
+        <h3>📍 Ubicación</h3>
+        <table>
+            <tr><th>Tipo</th><th>Recopilado</th><th>Compartido</th><th>Propósito</th></tr>
+            <tr><td>Ubicación aproximada</td><td><span class="badge-yes">Sí</span></td><td><span class="badge-no">No</span></td><td>Funcionalidad de la app</td></tr>
+            <tr><td>Ubicación precisa</td><td><span class="badge-yes">Sí</span></td><td><span class="badge-no">No</span></td><td>Funcionalidad de la app</td></tr>
+        </table>
+        <p><strong>Detalle:</strong> Se usa para calcular distancia recorrida y costo de combustible. No se almacena permanentemente. Es efímera (solo durante el viaje activo).</p>
+
+        <h3>📧 Información Personal</h3>
+        <table>
+            <tr><th>Tipo</th><th>Recopilado</th><th>Compartido</th><th>Propósito</th></tr>
+            <tr><td>Dirección de email</td><td><span class="badge-yes">Sí</span></td><td><span class="badge-no">No</span></td><td>Gestión de cuenta</td></tr>
+        </table>
+        <p><strong>Detalle:</strong> Solo se recopila el email para autenticación mediante Firebase Auth. No se usa para marketing ni se comparte con terceros.</p>
+
+        <h3>📊 Actividad en la App</h3>
+        <table>
+            <tr><th>Tipo</th><th>Recopilado</th><th>Compartido</th><th>Propósito</th></tr>
+            <tr><td>Interacciones en la app</td><td><span class="badge-yes">Sí</span></td><td><span class="badge-no">No</span></td><td>Analíticas</td></tr>
+            <tr><td>Otro contenido generado</td><td><span class="badge-yes">Sí</span></td><td><span class="badge-no">No</span></td><td>Funcionalidad de la app</td></tr>
+        </table>
+        <p><strong>Detalle:</strong> Las métricas de viajes analizados (precio, ganancia, distancia) se almacenan localmente en el dispositivo. Firebase Analytics recopila datos anónimos de uso.</p>
+
+        <h3>📱 Información del Dispositivo</h3>
+        <table>
+            <tr><th>Tipo</th><th>Recopilado</th><th>Compartido</th><th>Propósito</th></tr>
+            <tr><td>IDs de dispositivo (Hash SHA-256)</td><td><span class="badge-yes">Sí</span></td><td><span class="badge-no">No</span></td><td>Prevención de fraudes / Seguridad</td></tr>
+            <tr><td>Modelos / Otros IDs</td><td><span class="badge-yes">Sí</span></td><td><span class="badge-no">No</span></td><td>Analíticas / Estabilidad</td></tr>
+        </table>
+        <p><strong>Detalle:</strong> Recopilamos una huella digital irreversible del dispositivo para gestionar las pruebas gratuitas y evitar el uso compartido de cuentas. Firebase Crashlytics recopila datos anónimos de modelo y versión.</p>
+
+
+        <h2>Datos NO Recopilados</h2>
+        <ul>
+            <li>❌ Nombre completo</li>
+            <li>❌ Número de teléfono</li>
+            <li>❌ Dirección postal</li>
+            <li>❌ Información financiera (tarjetas, cuentas bancarias)</li>
+            <li>❌ Información de salud</li>
+            <li>❌ Mensajes (SMS, chat, email)</li>
+            <li>❌ Fotos o videos</li>
+            <li>❌ Archivos o documentos</li>
+            <li>❌ Calendario o contactos</li>
+            <li>❌ Historial de navegación web</li>
+        </ul>
+
+        <h2>Prácticas de Seguridad</h2>
+        <table>
+            <tr><th>Práctica</th><th>Implementada</th></tr>
+            <tr><td>Datos cifrados en tránsito (HTTPS)</td><td><span class="badge-yes">Sí</span></td></tr>
+            <tr><td>Datos cifrados en reposo</td><td><span class="badge-yes">Sí (sandbox Android)</span></td></tr>
+            <tr><td>Eliminación de datos disponible</td><td><span class="badge-yes">Sí (eliminar cuenta)</span></td></tr>
+            <tr><td>Revisión de seguridad independiente</td><td><span class="badge-no">No</span></td></tr>
+        </table>
+
+        <h2>Contacto</h2>
+        <p><strong>📧 Email:</strong> <a href="mailto:eabm93@gmail.com" style="color: #4caf50;">eabm93@gmail.com</a></p>
+
+        <div class="footer">
+            <p>© 2026 Retable. <a href="https://eabm.github.io/retable-legal/index.html">Inicio</a> · <a href="https://eabm.github.io/retable-legal/privacy-policy.html">Privacidad</a> · <a href="https://eabm.github.io/retable-legal/terms.html">Términos</a></p>
+        </div>
+    </div>
+</body>
+</html>

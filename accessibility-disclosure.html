@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divulgación del Servicio de Accesibilidad — Retable</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0f0f0f; color: #e0e0e0; line-height: 1.7; }
+        .container { max-width: 720px; margin: 0 auto; padding: 40px 24px; }
+        h1 { color: #4caf50; font-size: 1.8rem; margin-bottom: 4px; }
+        .date { color: #888; font-size: 0.85rem; margin-bottom: 32px; }
+        h2 { color: #fff; font-size: 1.15rem; margin-top: 28px; margin-bottom: 10px; border-left: 3px solid #4caf50; padding-left: 12px; }
+        p { margin-bottom: 12px; color: #ccc; }
+        ul { margin: 8px 0 16px 24px; }
+        li { margin-bottom: 6px; color: #bbb; }
+        strong { color: #e0e0e0; }
+        .back { display: inline-block; margin-bottom: 24px; color: #4caf50; text-decoration: none; font-size: 0.9rem; }
+        .back:hover { text-decoration: underline; }
+        .footer { text-align: center; color: #555; font-size: 0.8rem; margin-top: 48px; border-top: 1px solid #222; padding-top: 20px; }
+        .footer a { color: #4caf50; text-decoration: none; }
+        .highlight { background: #1a2e1a; border: 1px solid #2e4a2e; border-radius: 8px; padding: 12px 16px; margin: 12px 0; }
+        .warning { background: #2e2a1a; border: 1px solid #4a3e2e; border-radius: 8px; padding: 12px 16px; margin: 12px 0; }
+        table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+        th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid #222; }
+        th { color: #4caf50; font-size: 0.85rem; text-transform: uppercase; }
+        td { color: #bbb; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a class="back" href="https://eabm.github.io/retable-legal/index.html">← Volver al inicio</a>
+        <h1>Divulgación del Servicio de Accesibilidad</h1>
+        <p class="date">Última actualización: 14 de Abril de 2026</p>
+
+        <p>Este documento explica de forma detallada y transparente cómo y por qué Retable utiliza la API de Accesibilidad de Android (<code>AccessibilityService</code>), según lo requerido por las <a href="https://support.google.com/googleplay/android-developer/answer/10964491" style="color: #4caf50;">políticas de Google Play</a>.</p>
+
+        <h2>¿Qué es la API de Accesibilidad?</h2>
+        <p>La API de Accesibilidad de Android es una herramienta del sistema diseñada para ayudar a personas con discapacidades a interactuar con aplicaciones. También permite que aplicaciones autorizadas lean información de la pantalla para proporcionar funcionalidades específicas al usuario.</p>
+
+        <h2>¿Por qué Retable necesita este permiso?</h2>
+        <div class="highlight">
+            <p>Retable utiliza el Servicio de Accesibilidad <strong>exclusivamente</strong> para leer los datos de ofertas de viajes (origen, destino, precio, distancia) que aparecen en pantalla dentro de las aplicaciones de transporte configuradas por el usuario.</p>
+        </div>
+        <p>Sin este permiso, Retable no puede funcionar, ya que su propósito principal es analizar en tiempo real la rentabilidad de cada oferta de viaje para el conductor.</p>
+
+        <h2>¿Qué datos lee Retable?</h2>
+        <table>
+            <tr><th>Dato</th><th>Ejemplo</th><th>Uso</th></tr>
+            <tr><td>Precio bruto</td><td>"$8.500"</td><td>Cálculo de ganancia neta</td></tr>
+            <tr><td>Origen/Destino</td><td>"Providencia → La Florida"</td><td>Estimación de distancia</td></tr>
+            <tr><td>Distancia</td><td>"12.3 km"</td><td>Cálculo de costo de combustible</td></tr>
+            <tr><td>Tiempo estimado</td><td>"25 min"</td><td>Cálculo de valor por hora</td></tr>
+        </table>
+
+        <h2>¿Qué datos NO lee Retable?</h2>
+        <div class="warning">
+            <p>Retable <strong>NO</strong> lee, accede ni procesa:</p>
+        </div>
+        <ul>
+            <li>❌ Mensajes de texto, chat o WhatsApp</li>
+            <li>❌ Correos electrónicos</li>
+            <li>❌ Contraseñas o datos de autenticación</li>
+            <li>❌ Contactos o agenda telefónica</li>
+            <li>❌ Datos bancarios o de tarjetas de crédito</li>
+            <li>❌ Historial de navegación web</li>
+            <li>❌ Fotos, videos u otros archivos personales</li>
+            <li>❌ Contenido de redes sociales</li>
+            <li>❌ Información de salud u otros datos sensibles</li>
+        </ul>
+
+        <h2>¿Qué aplicaciones monitorea?</h2>
+        <p>Retable <strong>solo</strong> procesa eventos de accesibilidad provenientes de las siguientes aplicaciones, configuradas explícitamente por el usuario:</p>
+        <ul>
+            <li>Uber Driver (<code>com.ubercab.driver</code>)</li>
+            <li>DiDi Driver (<code>com.didi.mobility.driver</code>)</li>
+            <li>InDrive (<code>sinet.startup.inDriver</code>)</li>
+            <li>Cabify Driver (<code>com.cabify.driver</code>)</li>
+        </ul>
+        <p>Los eventos de todas las demás aplicaciones son <strong>descartados inmediatamente</strong> sin procesamiento.</p>
+
+        <h2>¿Se transmiten datos fuera del dispositivo?</h2>
+        <div class="highlight">
+            <p><strong>PROCESAMIENTO LOCAL:</strong> El contenido específico de sus viajes (precios, nombres, rutas) se procesa <strong>exclusivamente de forma local</strong>. Estos datos de accesibilidad NO se envían a servidores remotos ni a terceros.</p>
+            <p><strong>VALIDACIÓN DE SEGURIDAD:</strong> Únicamente el hecho técnico de haber detectado actividad en pantalla se utiliza como señal para validar su licencia contra los servidores de Retable (Firebase). Esto garantiza que la aplicación esté siendo utilizada por el titular de la cuenta correspondiente.</p>
+        </div>
+
+
+        <h2>¿Cómo desactivo el servicio?</h2>
+        <p>Puede desactivar el Servicio de Accesibilidad en cualquier momento:</p>
+        <ul>
+            <li><strong>Desde Retable:</strong> Presione el botón "DETENER SERVICIO" en el Dashboard.</li>
+            <li><strong>Desde Android:</strong> Vaya a Ajustes → Accesibilidad → Retable → Desactivar.</li>
+        </ul>
+
+        <h2>Contacto</h2>
+        <p>Si tiene preguntas sobre este uso, contáctenos en:</p>
+        <p><strong>📧 Email:</strong> <a href="mailto:eabm93@gmail.com" style="color: #4caf50;">eabm93@gmail.com</a></p>
+
+        <div class="footer">
+            <p>© 2026 Retable. <a href="https://eabm.github.io/retable-legal/index.html">Inicio</a> · <a href="https://eabm.github.io/retable-legal/privacy-policy.html">Privacidad</a> · <a href="https://eabm.github.io/retable-legal/terms.html">Términos</a></p>
+        </div>
+    </div>
+</body>
+</html>

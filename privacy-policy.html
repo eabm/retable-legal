@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidad — Retable</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0f0f0f; color: #e0e0e0; line-height: 1.7; }
+        .container { max-width: 720px; margin: 0 auto; padding: 40px 24px; }
+        h1 { color: #4caf50; font-size: 1.8rem; margin-bottom: 4px; }
+        .date { color: #888; font-size: 0.85rem; margin-bottom: 32px; }
+        h2 { color: #fff; font-size: 1.15rem; margin-top: 28px; margin-bottom: 10px; border-left: 3px solid #4caf50; padding-left: 12px; }
+        p { margin-bottom: 12px; color: #ccc; }
+        ul { margin: 8px 0 16px 24px; }
+        li { margin-bottom: 6px; color: #bbb; }
+        strong { color: #e0e0e0; }
+        .back { display: inline-block; margin-bottom: 24px; color: #4caf50; text-decoration: none; font-size: 0.9rem; }
+        .back:hover { text-decoration: underline; }
+        .footer { text-align: center; color: #555; font-size: 0.8rem; margin-top: 48px; border-top: 1px solid #222; padding-top: 20px; }
+        .footer a { color: #4caf50; text-decoration: none; }
+        .highlight { background: #1a1a2e; border: 1px solid #2e2e4a; border-radius: 8px; padding: 12px 16px; margin: 12px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a class="back" href="https://eabm.github.io/retable-legal/index.html">← Volver al inicio</a>
+        <h1>Política de Privacidad</h1>
+        <p class="date">Última actualización: 14 de Abril de 2026</p>
+
+        <p>En Retable, valoramos y protegemos la privacidad de nuestros usuarios. Esta política describe cómo manejamos la información en nuestra aplicación de asistencia para conductores.</p>
+
+        <h2>1. Información que Recopilamos</h2>
+        <p>Para proporcionar nuestros servicios de cálculo de rentabilidad, procesamos los siguientes tipos de datos:</p>
+        <ul>
+            <li><strong>Ubicación:</strong> Recopilamos datos de ubicación precisa y aproximada mientras la aplicación está en uso o en segundo plano (si el usuario activa el seguimiento de viaje) para calcular distancias y costos de combustible.</li>
+            <li><strong>Información de Cuenta:</strong> Recopilamos su dirección de correo electrónico cuando se registra para autenticar su cuenta y guardar sus preferencias.</li>
+            <li><strong>Datos de Pantalla (Accesibilidad):</strong> Con su permiso explícito, leemos datos de las ofertas de viajes en las aplicaciones oficiales de transporte para realizar los cálculos.</li>
+        </ul>
+
+        <h2>2. Uso del Servicio de Accesibilidad</h2>
+        <div class="highlight">
+            <p>Retable utiliza la API de Accesibilidad de Android para leer información de ofertas de viajes en pantalla. Esta información se procesa para dos fines principales:</p>
+            <ul>
+                <li><strong>Cálculo de Rentabilidad:</strong> Procesar datos de viajes de Uber, DiDi, InDrive y Cabify para calcular ganancias netas.</li>
+                <li><strong>Validación de Conectividad (Antifraude):</strong> Detectar actividad en las aplicaciones de transporte para inferir que el dispositivo cuenta con acceso a internet funcional. Esto es necesario para validar la legitimidad de la sesión de usuario y prevenir el bypass de seguridad.</li>
+            </ul>
+            <p>Toda esta información se procesa <strong>exclusivamente de forma local</strong> y no se comparte ni se almacena externamente fuera de los registros históricos de su propia cuenta. Puede leer más en nuestra <a href="https://eabm.github.io/retable-legal/accessibility-disclosure.html" style="color: #4caf50;">Divulgación de Accesibilidad</a>.</p>
+        </div>
+
+
+        <h2>3. Prevención de Fraudes e Identificación de Hardware</h2>
+        <p>Para gestionar correctamente los periodos de prueba gratuita de 1 mes y prevenir el uso indebido de múltiples cuentas en un mismo dispositivo, recopilamos un identificador de hardware anonimizado ("Huella Digital").</p>
+        <ul>
+            <li><strong>Procesamiento Seguro:</strong> Obtenemos el ID de hardware del dispositivo y lo transformamos mediante una función hash (SHA-256) antes de que abandone el teléfono.</li>
+            <li><strong>Privacidad:</strong> Nunca almacenamos ni transmitimos el identificador real de su dispositivo; solo almacenamos la firma cifrada para validar la elegibilidad de los servicios premium.</li>
+        </ul>
+
+        <h2>4. Cómo Usamos la Información</h2>
+
+        <p>Utilizamos los datos recopilados para:</p>
+        <ul>
+            <li>Calcular la ganancia neta estimada por viaje.</li>
+            <li>Mostrar alertas de rentabilidad (filtros de precio, rating, etc.).</li>
+            <li>Generar estadísticas históricas de sus viajes analizados.</li>
+            <li>Mantener y mejorar la seguridad de la aplicación.</li>
+        </ul>
+
+        <h2>4. Intercambio de Información</h2>
+        <p><strong>No vendemos, alquilamos ni compartimos</strong> su información personal con terceros para fines de marketing o publicidad. Los datos solo se sincronizan con su propia cuenta privada en Firebase (Google) para respaldo y recuperación.</p>
+
+        <h2>5. Seguridad</h2>
+        <p>Implementamos medidas de seguridad estándar de la industria, incluyendo cifrado HTTPS/TLS para la transmisión de datos hacia Firebase y el almacenamiento seguro proporcionado por el sistema Android.</p>
+
+        <h2>6. Sus Derechos</h2>
+        <p>Usted tiene derecho a:</p>
+        <ul>
+            <li>Acceder a sus datos almacenados.</li>
+            <li>Rectificar información incorrecta.</li>
+            <li>Eliminar su cuenta y todos los datos asociados desde el menú de Configuración.</li>
+            <li>Revocar los permisos de ubicación o accesibilidad en cualquier momento.</li>
+        </ul>
+
+        <h2>7. Cambios en esta Política</h2>
+        <p>Podemos actualizar nuestra Política de Privacidad periódicamente. Le notificaremos cualquier cambio publicando la nueva versión en este sitio y dentro de la aplicación.</p>
+
+        <h2>8. Contacto</h2>
+        <p>Si tiene preguntas sobre esta política, puede contactarnos en:</p>
+        <p><strong>📧 Email:</strong> <a href="mailto:eabm93@gmail.com" style="color: #4caf50;">eabm93@gmail.com</a></p>
+
+        <div class="footer">
+            <p>© 2026 Retable. <a href="https://eabm.github.io/retable-legal/index.html">Inicio</a> · <a href="https://eabm.github.io/retable-legal/terms.html">Términos</a></p>
+        </div>
+    </div>
+</body>
+</html>
